@@ -1,6 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@layer base {
+  :root {
+    font-family: "Poppins", system-ui, Avenir, Helvetica, Arial, sans-serif;
+  }
+
+}
+
+  @layer components {
+    @keyframes typing {
+        from { width: 0 }
+        to { width: 100% }
+    }
+
+    @keyframes piscada {
+        from, to { border-color: transparent }
+        50% { border-color: #fff }
+    }
+
+    @keyframes float {
+        0%, 100% { transform: translateX(-50%) translateY(0) }
+        50% { transform: translateX(-50%) translateY(-20px) }
+    }
+
+    .animate-typing {
+        animation: typing 2s steps(90, end) forwards, piscada 1s step-end infinite;
+    }
+
+    .animate-float {
+        animation: float 2s ease-in-out infinite;
+    }
+    
+    .hover-text-glow {
+      transition: text-shadow 0.2s ease-in-out;
+    }
+    .hover-text-glow:hover {
+      text-shadow: 0 0 7px #030303, 0 0 10px #fff, 0 0 12px #fff, 0 0 24px #243B55;
+    }
 }
