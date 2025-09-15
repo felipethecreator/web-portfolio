@@ -18,7 +18,7 @@ export default function Hero() {
             <Link href="#contact">Entre em contato</Link>
           </Button>
           <Button variant="outline" asChild>
-            <Link href="#projects">Veja meu trabalho</Link>
+            <Link href="/cv.pdf" target="_blank">Baixar currículo</Link>
           </Button>
         </div>
       </div>
