@@ -23,7 +23,7 @@ export default function Hero() {
         </div>
       </div>
       <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-[#3b82f6]/20">
-        <Image src="/profile-picture.jpg" alt="Felipe Rodrigues" fill className="object-cover" priority />
+        <Image src="/pfp-3.jpg" alt="Felipe Rodrigues" fill className="object-cover" priority />
       </div>
     </section>
   )

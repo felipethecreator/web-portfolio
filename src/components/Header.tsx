@@ -22,6 +22,9 @@ export default function Header() {
           <Link href="#contact" className="text-[#94a3b8] hover:text-[#f8fafc] transition-colors">
             Contato
           </Link>
+          <Link href="#experience" className="text-[#94a3b8] hover:text-[#f8fafc] transition-colors">
+            Experiência
+          </Link>
         </nav>
         <div className="flex items-center gap-2">
           <Link href="https://github.com/felipethecreator" target="_blank" rel="noopener noreferrer">
