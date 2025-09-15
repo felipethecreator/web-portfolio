@@ -32,11 +32,11 @@ export default function About() {
           </div>
           <div className="flex items-center gap-4">
             <div className="w-12 h-12 flex items-center justify-center rounded-full bg-[#3b82f6]/10 text-[#3b82f6]">
-              <span className="font-bold">PIs</span>
+              <span className="font-bold">MDf</span>
             </div>
             <div>
-              <h3 className="font-semibold text-lg">Projetos de Impacto Social</h3>
-              <p className="text-muted-foreground">Aplicação de habilidades de desenvolvimento em projetos voluntários</p>
+              <h3 className="font-semibold text-lg">Monitor de Desenvolvimento Front-End</h3>
+              <p className="text-muted-foreground">Conciliação de aulas de React e Javascript para alunos do CEUB.</p>
             </div>
           </div>
         </div>
