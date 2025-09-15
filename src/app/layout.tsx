@@ -1,22 +1,24 @@
-import type { Metadata } from "next";
-import "./globals.css";
+import type React from "react"
+import "@/app/globals.css"
+import { Inter } from "next/font/google"
 
-export const metadata: Metadata = {
-  title: "Web Portfólio",
-  description: "Web portfólio do Felipe",
-};
+const inter = Inter({ subsets: ["latin"] })
+
+export const metadata = {
+  title: "Felipe Rodrigues | Dev Full Stack",
+  description: "Portfólio website do Felipe, um Desenvolvedor Full Stack.",
+}
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: {
+  children: React.ReactNode
+}) {
   return (
-    <html lang="en">
-      <body
-      >
-        {children}
+    <html lang="en" suppressHydrationWarning>
+      <body className={inter.className}>
+          {children}
       </body>
     </html>
-  );
+  )
 }

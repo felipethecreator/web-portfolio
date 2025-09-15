@@ -1,27 +1,30 @@
+import Image from "next/image"
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
+
 export default function Hero() {
-    return (
-        <>
-            <div className="flex flex-col justify-center h-[85%] ml-20 max-[1700px]:ml-12 max-[1000px]:ml-12 max-[700px]:ml-4">
-                <div className="inline-block w-fit">
-                    <h1 className="text-[38px] text-white font-medium overflow-hidden whitespace-nowrap animate-typing border-r-2 border-r-white pr-1 max-[1700px]:text-[40px] max-[700px]:text-[30px] max-[390px]:text-[30px] max-[375px]:text-[27px]">
-                        Felipe Rodrigues
-                    </h1>
-                    <h2 className="text-[#9B9B9B] font-normal text-[28px] max-[1700px]:text-[30px] max-[700px]:text-[27px] max-[390px]:text-[27px] max-[375px]:text-[24px]">
-                        Dev Full-Stack
-                    </h2>
-                </div>
-                <hr className="text-[#ADADAD] h-px w-1/2 mt-8" />
-                <p className="mt-5 text-[48px] max-w-[60vw] text-white font-light max-[1700px]:text-[30px] max-[1700px]:max-w-[1000px] max-[1400px]:max-w-[800px] max-[1000px]:text-[30px] max-[1000px]:max-w-[600px] max-[700px]:text-[23px] max-[390px]:text-[20px] max-[375px]:text-[18px]">
-                    Desafio a lógica para criar soluções que não apenas funcionam, mas também encantam.
-                    Como desenvolvedor Full Stack, minha missão é construir pontes entre ideias e realidade,
-                    um pixel de cada vez. 🚀💻✨
-                </p>
-            <img 
-                className="w-18 absolute bottom-5 left-1/2 animate-float max-[1700px]:w-16 max-[700px]:w-[70px] max-[390px]:w-[60px] max-[375px]:w-[50px]" 
-                src="down-arrow.png" 
-                alt="Seta para baixo" 
-            />
-            </div>
-        </>
-    )
+  return (
+    <section className="flex flex-col-reverse md:flex-row items-center justify-between gap-8 py-12">
+      <div className="space-y-6 max-w-xl">
+        <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
+          Olá, me chamo Felipe
+          <span className="block text-[#3b82f6]">Dev Full Stack</span>
+        </h1>
+        <p className="text-xl text-[#94a3b8]">
+            Eu desenvolvo aplicações web acessíveis e fáceis de usar com tecnologias modernas.
+        </p>
+        <div className="flex gap-4">
+          <Button asChild>
+            <Link href="#contact">Entre em contato</Link>
+          </Button>
+          <Button variant="outline" asChild>
+            <Link href="#projects">Veja meu trabalho</Link>
+          </Button>
+        </div>
+      </div>
+      <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-[#3b82f6]/20">
+        <Image src="/profile-picture.jpg" alt="Felipe Rodrigues" fill className="object-cover" priority />
+      </div>
+    </section>
+  )
 }
