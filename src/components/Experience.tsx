@@ -52,7 +52,7 @@ export default function Experience() {
       technologies: ["Next.js", "Typescript", "Node.js", "TailwindCSS", "PostgreSQL", "Prisma ORM", "Supabase"],
     },
     {
-      title: "Monitor de Desenvolvimento Full-Stack (React)",
+      title: "Monitor de Desenvolvimento Front-End (React)",
       company: "Instituição Realizando Sonhos",
       type: "Voluntário",
       location: "Presencial, Brasília - DF",
