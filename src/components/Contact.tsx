@@ -25,7 +25,7 @@ export default function Contact() {
             );
             toast("Email enviado com sucesso!");
             form.current?.reset();
-        } catch (error: unknown) {
+        } catch {
             toast("Ocorreu um erro ao enviar o email.");
         } finally {
             setLoading(false);
