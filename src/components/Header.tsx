@@ -19,11 +19,11 @@ export default function Header() {
           <Link href="#projects" className="text-[#94a3b8] hover:text-[#f8fafc] transition-colors">
             Projetos
           </Link>
-          <Link href="#contact" className="text-[#94a3b8] hover:text-[#f8fafc] transition-colors">
-            Contato
-          </Link>
           <Link href="#experience" className="text-[#94a3b8] hover:text-[#f8fafc] transition-colors">
             Experiência
+          </Link>
+          <Link href="#contact" className="text-[#94a3b8] hover:text-[#f8fafc] transition-colors">
+            Contato
           </Link>
         </nav>
         <div className="flex items-center gap-2">
