@@ -6,6 +6,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Mail, Linkedin, Github } from "lucide-react"
 import emailjs from '@emailjs/browser';
 import { useRef, useState } from 'react';
+import { ToastContainer, toast } from "react-toastify";
 
 export default function Contact() {
     const form = useRef<HTMLFormElement>(null);
@@ -22,10 +23,10 @@ export default function Contact() {
                 form.current!,
                 "1SVlhqfXy27mkhO59"
             );
-            alert('Email enviado com sucesso!');
+            toast("Email enviado com sucesso!");
             form.current?.reset();
         } catch (error: any) {
-            alert('Erro ao enviar email: ' + (error.text || error.message));
+            toast("Ocorreu um erro ao enviar o email.");
         } finally {
             setLoading(false);
         }
@@ -117,6 +118,7 @@ export default function Contact() {
                     </CardContent>
                 </Card>
             </div>
+            <ToastContainer theme="dark"/>
         </section>
     )
 }
