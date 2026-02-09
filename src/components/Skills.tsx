@@ -24,7 +24,7 @@ export default function Skills() {
               </svg>
             </div>
             <h3 className="font-semibold text-lg">Frontend</h3>
-            <p className="text-[#94a3b8] mt-2">Angular, React, Next.js, TypeScript, Javascript, Tailwind CSS, Bootstrap, Sass</p>
+            <p className="text-[#94a3b8] mt-2">Angular, React, Next.js, TypeScript, JavaScript, Tailwind CSS, Bootstrap, Sass</p>
           </CardContent>
         </Card>
         <Card>
@@ -44,7 +44,7 @@ export default function Skills() {
               </svg>
             </div>
             <h3 className="font-semibold text-lg">Backend</h3>
-            <p className="text-[#94a3b8] mt-2">Java, Spring, Node.js, Go, Express, Prisma ORM, PostgreSQL, MongoDB</p>
+            <p className="text-[#94a3b8] mt-2">Java, Spring Boot, Maven, Swagger (OpenAPI), Node.js, Express, Prisma ORM, PostgreSQL, MongoDB</p>
           </CardContent>
         </Card>
         <Card>
@@ -64,7 +64,7 @@ export default function Skills() {
               </svg>
             </div>
             <h3 className="font-semibold text-lg">DevOps</h3>
-            <p className="text-[#94a3b8] mt-2">Git, Linux, Docker, Vercel</p>
+            <p className="text-[#94a3b8] mt-2">Git, Linux, Docker, Google Cloud Platform (GCP), Deploy de aplicações backend/frontend, CI/CD, Vercel</p>
           </CardContent>
         </Card>
         <Card>

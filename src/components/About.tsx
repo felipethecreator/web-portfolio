@@ -18,7 +18,7 @@ export default function About() {
             </div>
             <div>
               <h3 className="font-semibold text-lg">Educação</h3>
-              <p className="text-muted-foreground">Bacharelado em Ciências da Computação - 6º semestre</p>
+              <p className="text-muted-foreground">Bacharelado em Ciências da Computação - 7º semestre</p>
             </div>
           </div>
             <div className="flex items-center gap-4">
@@ -28,15 +28,6 @@ export default function About() {
             <div>
               <h3 className="font-semibold text-lg">Soft Skills</h3>
               <p className="text-muted-foreground">Autodidata, Proatividade, Comunicação, Colaboração, Liderança.</p>
-            </div>
-          </div>
-          <div className="flex items-center gap-4">
-            <div className="w-12 h-12 flex items-center justify-center rounded-full bg-[#3b82f6]/10 text-[#3b82f6]">
-              <span className="font-bold">MDf</span>
-            </div>
-            <div>
-              <h3 className="font-semibold text-lg">Monitor de Desenvolvimento Front-End</h3>
-              <p className="text-muted-foreground">Conciliação de aulas de React e Javascript para alunos do CEUB.</p>
             </div>
           </div>
         </div>

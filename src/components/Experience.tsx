@@ -6,6 +6,21 @@ export default function Experience() {
   const experiences = [
     {
       title: "Desenvolvedor Full-Stack",
+      company: "Vicax - Soluções Tecnológicas",
+      type: "Desenvolvedor Júnior - PJ",
+      location: "Remoto, Brasília - DF",
+      period: "Nov 2025 - O momento",
+      description: [
+        "Desenvolvimento de funcionalidades full-stack para uma plataforma de acompanhamento e gestão de doações, com foco em dashboards e visualização de dados.",
+        "Implementação de filtros e melhorias de usabilidade para tornar a navegação e a análise de informações mais rápidas e intuitivas.",
+        "Utilização de Svelte no frontend e NestJS no backend, integrando as camadas da aplicação e garantindo consistência nos dados exibidos.",
+        "Criação de otimizações de queries e índices no PostgreSQL para reduzir tempo de resposta e melhorar o desempenho das consultas usadas nos dashboards.",
+        "Utilização de metodologias ágeis (Scrum/Kanban) para organização das tarefas.",
+      ],
+      technologies: ["Svelte", "Typescript", "Nest.js", "Prisma ORM", "PostgreSQL"],
+    },
+    {
+      title: "Desenvolvedor Full-Stack",
       company: "LightBase - Serviços e Consultoria em Software Público",
       type: "Estágio",
       location: "Remoto, Brasília - DF",
