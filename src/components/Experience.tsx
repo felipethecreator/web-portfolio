@@ -112,7 +112,7 @@ export default function Experience() {
 
   return (
     <section ref={sectionRef} id="experience" className="scroll-mt-16">
-      <h2 className="text-3xl font-bold mb-8 text-center">Experiência</h2>
+      <h2 className="text-3xl font-bold mb-8 text-center">Experiência Profissional</h2>
       <div className="space-y-6">
         {experiences.map((experience, index) => (
           <Card key={index} data-animate="experience-card" className="overflow-hidden">
