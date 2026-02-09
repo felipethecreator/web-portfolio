@@ -1,9 +1,13 @@
+"use client"
+
 import Image from "next/image"
 import Link from "next/link"
+import { useEffect, useRef } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Github, ExternalLink } from "lucide-react"
+import { ensureGsap, prefersReducedMotion } from "@/lib/gsap"
 
 export default function Projects() {
   const projects = [
@@ -63,14 +67,41 @@ export default function Projects() {
     },
   ]
 
+  const sectionRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    const section = sectionRef.current
+    if (!section || prefersReducedMotion()) return
+
+    const gsap = ensureGsap()
+    const ctx = gsap.context(() => {
+      const q = gsap.utils.selector(section)
+      gsap.from(q("[data-animate='project-card']"), {
+        y: 18,
+        opacity: 0,
+        duration: 0.55,
+        stagger: 0.08,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: section,
+          start: "top 80%",
+          once: true,
+        },
+      })
+    }, section)
+
+    return () => ctx.revert()
+  }, [])
+
   return (
-    <section id="projects" className="scroll-mt-16">
+    <section ref={sectionRef} id="projects" className="scroll-mt-16">
       <h2 className="text-3xl font-bold mb-8 text-center">Projetos</h2>
       <div className="grid md:grid-cols-2 gap-8">
         {projects.map((project, index) => (
-          <Card key={index} className="overflow-hidden">
+          <Card key={index} data-animate="project-card" className="overflow-hidden">
             <div className="relative h-64">
-              <a href={project.image || "/projects/placeholder.png"} target="_blank" rel="noopener noreferrer"><Image src={project.image || "/projects/placeholder.png"} alt={project.title} fill className="object-contain" priority />
+              <a href={project.image || "/projects/placeholder.png"} target="_blank" rel="noopener noreferrer">
+                <Image src={project.image || "/projects/placeholder.png"} alt={project.title} fill className="object-contain" priority />
               </a>
             </div>
             <CardContent className="p-6">

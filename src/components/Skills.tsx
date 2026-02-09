@@ -1,11 +1,41 @@
+"use client"
+
+import { useEffect, useRef } from "react"
 import { Card, CardContent } from "@/components/ui/card"
+import { ensureGsap, prefersReducedMotion } from "@/lib/gsap"
 
 export default function Skills() {
+  const sectionRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    const section = sectionRef.current
+    if (!section || prefersReducedMotion()) return
+
+    const gsap = ensureGsap()
+    const ctx = gsap.context(() => {
+      const q = gsap.utils.selector(section)
+      gsap.from(q("[data-animate='skill-card']"), {
+        y: 16,
+        opacity: 0,
+        duration: 0.5,
+        stagger: 0.08,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: section,
+          start: "top 80%",
+          once: true,
+        },
+      })
+    }, section)
+
+    return () => ctx.revert()
+  }, [])
+
   return (
-    <section id="skills" className="scroll-mt-16">
+    <section ref={sectionRef} id="skills" className="scroll-mt-16">
       <h2 className="text-3xl font-bold mb-8 text-center">Habilidades e Tecnologias</h2>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-        <Card>
+        <Card data-animate="skill-card">
           <CardContent className="p-6 flex flex-col items-center text-center">
             <div className="w-16 h-16 flex items-center justify-center rounded-full bg-[#3b82f6]/10 mb-4">
               <svg
@@ -27,7 +57,7 @@ export default function Skills() {
             <p className="text-[#94a3b8] mt-2">Angular, React, Next.js, TypeScript, JavaScript, Tailwind CSS, Bootstrap, Sass</p>
           </CardContent>
         </Card>
-        <Card>
+        <Card data-animate="skill-card">
           <CardContent className="p-6 flex flex-col items-center text-center">
             <div className="w-16 h-16 flex items-center justify-center rounded-full bg-[#3b82f6]/10 mb-4">
               <svg
@@ -47,7 +77,7 @@ export default function Skills() {
             <p className="text-[#94a3b8] mt-2">Java, Spring Boot, Maven, Swagger (OpenAPI), Node.js, Express, Prisma ORM, PostgreSQL, MongoDB</p>
           </CardContent>
         </Card>
-        <Card>
+        <Card data-animate="skill-card">
           <CardContent className="p-6 flex flex-col items-center text-center">
             <div className="w-16 h-16 flex items-center justify-center rounded-full bg-[#3b82f6]/10 mb-4">
               <svg
@@ -67,7 +97,7 @@ export default function Skills() {
             <p className="text-[#94a3b8] mt-2">Git, Linux, Docker, Google Cloud Platform (GCP), Deploy de aplicações backend/frontend, CI/CD, Vercel</p>
           </CardContent>
         </Card>
-        <Card>
+        <Card data-animate="skill-card">
           <CardContent className="p-6 flex flex-col items-center text-center">
             <div className="w-16 h-16 flex items-center justify-center rounded-full bg-[#3b82f6]/10 mb-4">
               <svg

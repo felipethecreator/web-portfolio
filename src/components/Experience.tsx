@@ -1,6 +1,10 @@
+"use client"
+
+import { useEffect, useRef } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Calendar, MapPin } from "lucide-react"
+import { ensureGsap, prefersReducedMotion } from "@/lib/gsap"
 
 export default function Experience() {
   const experiences = [
@@ -80,12 +84,38 @@ export default function Experience() {
     },
   ]
 
+  const sectionRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    const section = sectionRef.current
+    if (!section || prefersReducedMotion()) return
+
+    const gsap = ensureGsap()
+    const ctx = gsap.context(() => {
+      const q = gsap.utils.selector(section)
+      gsap.from(q("[data-animate='experience-card']"), {
+        y: 18,
+        opacity: 0,
+        duration: 0.55,
+        stagger: 0.08,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: section,
+          start: "top 80%",
+          once: true,
+        },
+      })
+    }, section)
+
+    return () => ctx.revert()
+  }, [])
+
   return (
-    <section id="experience" className="scroll-mt-16">
+    <section ref={sectionRef} id="experience" className="scroll-mt-16">
       <h2 className="text-3xl font-bold mb-8 text-center">Experiência</h2>
       <div className="space-y-6">
         {experiences.map((experience, index) => (
-          <Card key={index} className="overflow-hidden">
+          <Card key={index} data-animate="experience-card" className="overflow-hidden">
             <CardContent className="p-6">
               <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
                 <div className="flex-1">

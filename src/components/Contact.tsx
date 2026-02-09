@@ -4,13 +4,39 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Mail, Linkedin, Github } from "lucide-react"
-import emailjs from '@emailjs/browser';
-import { useRef, useState } from 'react';
-import { ToastContainer, toast } from "react-toastify";
+import emailjs from "@emailjs/browser"
+import { useEffect, useRef, useState } from "react"
+import { ToastContainer, toast } from "react-toastify"
+import { ensureGsap, prefersReducedMotion } from "@/lib/gsap"
 
 export default function Contact() {
+    const sectionRef = useRef<HTMLElement>(null);
     const form = useRef<HTMLFormElement>(null);
     const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+        const section = sectionRef.current;
+        if (!section || prefersReducedMotion()) return;
+
+        const gsap = ensureGsap();
+        const ctx = gsap.context(() => {
+            const q = gsap.utils.selector(section);
+            gsap.from(q("[data-animate='contact-block']"), {
+                y: 16,
+                opacity: 0,
+                duration: 0.55,
+                stagger: 0.12,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: section,
+                    start: "top 80%",
+                    once: true,
+                },
+            });
+        }, section);
+
+        return () => ctx.revert();
+    }, []);
 
     const sendEmail = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -33,10 +59,10 @@ export default function Contact() {
     };
 
     return (
-        <section id="contact" className="scroll-mt-16">
+        <section ref={sectionRef} id="contact" className="scroll-mt-16">
             <h2 className="text-3xl font-bold mb-8 text-center">Entre em Contato</h2>
             <div className="grid md:grid-cols-2 gap-12">
-                <div className="space-y-6">
+                <div data-animate="contact-block" className="space-y-6">
                     <p className="text-lg">
                         Mesmo trabalhando atualmente, estou sempre curioso para conhecer novos projetos e desafios. Se você busca um desenvolvedor que possa agregar valor ao seu time ou projeto, vamos conversar!
                     </p>
@@ -82,7 +108,7 @@ export default function Contact() {
                         </div>
                     </div>
                 </div>
-                <Card>
+                <Card data-animate="contact-block">
                     <CardContent className="p-6">
                         <form ref={form} onSubmit={sendEmail} className="space-y-4">
                             <div className="grid grid-cols-2 gap-4">
