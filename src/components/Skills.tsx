@@ -54,7 +54,7 @@ export default function Skills() {
               </svg>
             </div>
             <h3 className="font-semibold text-lg">Frontend</h3>
-            <p className="text-[#94a3b8] mt-2">Angular, React, Next.js, TypeScript, JavaScript, Tailwind CSS, Bootstrap, Sass</p>
+            <p className="text-[#94a3b8] mt-2">Angular, Svelte, React, Next.js, TypeScript, JavaScript, Tailwind CSS, Bootstrap, Sass</p>
           </CardContent>
         </Card>
         <Card data-animate="skill-card">
@@ -74,7 +74,7 @@ export default function Skills() {
               </svg>
             </div>
             <h3 className="font-semibold text-lg">Backend</h3>
-            <p className="text-[#94a3b8] mt-2">Java, Spring Boot, Maven, Swagger (OpenAPI), Node.js, Express, Prisma ORM, PostgreSQL, MongoDB</p>
+            <p className="text-[#94a3b8] mt-2">Java, Spring Boot, Maven, Swagger (OpenAPI), Nest.js, Node.js, Express, Prisma ORM, PostgreSQL, MongoDB</p>
           </CardContent>
         </Card>
         <Card data-animate="skill-card">
