@@ -5,8 +5,13 @@ import Link from "next/link"
 import { useEffect, useRef } from "react"
 import { Button } from "@/components/ui/button"
 import { ensureGsap, prefersReducedMotion } from "@/lib/gsap"
+import type { PortfolioContent } from "@/lib/portfolio-content"
 
-export default function Hero() {
+type HeroProps = {
+  content: PortfolioContent["hero"]
+}
+
+export default function Hero({ content }: HeroProps) {
   const sectionRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
@@ -39,18 +44,20 @@ export default function Hero() {
     >
       <div className="space-y-6 max-w-xl">
         <h1 data-animate="hero-text" className="text-4xl md:text-5xl font-bold tracking-tight">
-          Olá, me chamo Felipe
-          <span className="block text-[#3b82f6]">Dev Full Stack</span>
+          {content.titleIntro}
+          <span className="block text-[#3b82f6]">{content.titleHighlight}</span>
         </h1>
         <p data-animate="hero-text" className="text-xl text-[#94a3b8]">
-          Eu desenvolvo aplicações web acessíveis e fáceis de usar com tecnologias modernas.
+          {content.description}
         </p>
         <div data-animate="hero-text" className="flex gap-4">
           <Button asChild>
-            <Link href="#contact">Entre em contato</Link>
+            <Link href="#contact">{content.contactCta}</Link>
           </Button>
           <Button variant="outline" asChild>
-            <Link href="/cv.pdf" target="_blank">Baixar currículo</Link>
+            <Link href="/cv.pdf" target="_blank" rel="noopener noreferrer">
+              {content.resumeCta}
+            </Link>
           </Button>
         </div>
       </div>
@@ -58,7 +65,13 @@ export default function Hero() {
         data-animate="hero-image"
         className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-[#3b82f6]/20"
       >
-        <Image src="/pfp-3.jpg" alt="Felipe Rodrigues" fill className="object-cover" priority />
+        <Image
+          src="/pfp-3.jpg"
+          alt={content.imageAlt}
+          fill
+          className="object-cover"
+          priority
+        />
       </div>
     </section>
   )
